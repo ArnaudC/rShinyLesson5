@@ -1,3 +1,5 @@
+# ui.R
+
 shinyUI(fluidPage(
   titlePanel("censusVis"),
   
@@ -10,15 +12,12 @@ shinyUI(fluidPage(
                   label = "Choose a variable to display",
                   choices = c("Percent White", "Percent Black",
                               "Percent Hispanic", "Percent Asian"),
-                  selected = "Percent White"),
+                  selected = "Percent Asian"),
       
       sliderInput("range", 
                   label = "Range of interest:",
                   min = 0, max = 100, value = c(0, 100))
     ),
-    mainPanel(
-      textOutput("text1"),
-      textOutput("text2")
-    )
+    mainPanel(plotOutput("map"))
   )
 ))
